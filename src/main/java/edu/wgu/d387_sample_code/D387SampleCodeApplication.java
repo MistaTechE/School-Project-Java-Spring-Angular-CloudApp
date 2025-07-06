@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.ClassPathResource;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.concurrent.ExecutorService;
 
 
@@ -45,6 +49,28 @@ public class D387SampleCodeApplication {
 				e.printStackTrace();
 			}
 		});
+
+		ZoneId zEastern=ZoneId.of("America/New_York");
+		ZoneId zMountain=ZoneId.of("America/Denver");
+		ZoneId zUTC=ZoneId.of("UTC");
+		ZoneId zoneId=ZoneId.systemDefault();
+
+		LocalDateTime localDateTime=LocalDateTime.now();
+		System.out.println("local time " + localDateTime.toString());
+		ZonedDateTime zonedDateTime=localDateTime.atZone(zoneId);
+		ZonedDateTime zonedDateTimeEastern=zonedDateTime.withZoneSameInstant(zEastern);
+		LocalDateTime localDateTimeEastern=zonedDateTimeEastern.toLocalDateTime();
+		System.out.println("Eastern time " + localDateTimeEastern.toString());
+		ZonedDateTime zonedDateTimeMountain=zonedDateTime.withZoneSameInstant(zMountain);
+		LocalDateTime localDateTimeMountain=zonedDateTimeMountain.toLocalDateTime();
+		System.out.println("Mountain time " + localDateTimeMountain.toString());
+		ZonedDateTime zonedDateTimeUTC=zonedDateTime.withZoneSameInstant(zUTC);
+		LocalDateTime localDateTimeUTC=zonedDateTimeUTC.toLocalDateTime();
+		System.out.println("UTC time " + localDateTimeUTC.toString());
+
+
+
+
 
 		//System.out.println(fromThread1);
 		//System.out.println(fromThread2);
