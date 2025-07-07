@@ -5,12 +5,16 @@
     <div class="hgroup">
       <h1>Landon Hotel</h1>
       <!--<h1>Testing</h1>-->
+      <div class="scene" id="welcomeMesssage">
+        <h1>{{welcome1}}</h1>
+        <h1>{{welcome2}}</h1>
+      </div>
       <h2>London, Ontario</h2>
 
 
-      <div class="scene" id="presentation">
-        <h1>{{message| async}}</h1>
-      </div>
+
+
+
 
 
 
@@ -31,6 +35,13 @@
 <main id="wrapper">
   <div class="scene" id="welcome">
     <article class="content">
+
+      <div class="scene" id="presentation">
+        <h1>{{message| async}}</h1>
+      </div>
+      <div class="scene" id="timeZones">
+        <h1>{{tZ| async}}</h1>
+      </div>
 
 
 

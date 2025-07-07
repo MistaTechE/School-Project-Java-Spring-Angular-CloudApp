@@ -28,11 +28,26 @@ export class AppComponent implements OnInit{
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
   message!:Observable<string>
+  tZ!:Observable<string>
+  welcome1 : string = '';
+  welcome2 : string = '';
 
+  //look up how to receive a string array
+  //
     ngOnInit(){
 
 
       this.message = this.httpClient.get(this.baseURL + '/api/presentation', {responseType: 'text'} )
+      this.tZ = this.httpClient.get(this.baseURL + '/api/timeZones', {responseType: 'text'} )
+      this.getWelcomeMessages().subscribe(
+        welomeMessagesJson => {
+          const welcomeMessagesArr: string[] = Object.values(welomeMessagesJson);
+          this.welcome1 = welcomeMessagesArr[0];
+          this.welcome2 = welcomeMessagesArr[1];
+        }
+      )
+
+
 
 
 
@@ -89,6 +104,10 @@ export class AppComponent implements OnInit{
 
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
     }
+
+  getWelcomeMessages(): Observable<any>{
+    return this.httpClient.get(this.baseURL + '/api/welcomeMesssage', {responseType: 'json'});
+  }
 
   }
 
