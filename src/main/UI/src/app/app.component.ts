@@ -29,6 +29,8 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
   message!:Observable<string>
   tZ!:Observable<string>
+  tZM!:Observable<string>
+  tZU!:Observable<string>
   welcome1 : string = '';
   welcome2 : string = '';
 
@@ -39,6 +41,9 @@ export class AppComponent implements OnInit{
 
       this.message = this.httpClient.get(this.baseURL + '/api/presentation', {responseType: 'text'} )
       this.tZ = this.httpClient.get(this.baseURL + '/api/timeZones', {responseType: 'text'} )
+      this.tZM = this.httpClient.get(this.baseURL + '/api/timeZonesMT', {responseType: 'text'} )
+      this.tZU = this.httpClient.get(this.baseURL + '/api/timeZonesUTC', {responseType: 'text'} )
+
       this.getWelcomeMessages().subscribe(
         welomeMessagesJson => {
           const welcomeMessagesArr: string[] = Object.values(welomeMessagesJson);
@@ -46,8 +51,6 @@ export class AppComponent implements OnInit{
           this.welcome2 = welcomeMessagesArr[1];
         }
       )
-
-
 
 
 
@@ -109,7 +112,7 @@ export class AppComponent implements OnInit{
     return this.httpClient.get(this.baseURL + '/api/welcomeMesssage', {responseType: 'json'});
   }
 
-  }
+}
 
 
 
