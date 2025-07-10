@@ -29,15 +29,23 @@ public class RoomEntity {
 	@NotNull
 	private String price;
 
+	@NotNull
+	private String cPrice;
+
+	@NotNull
+	private String ePrice;
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<ReservationEntity> reservationEntityList;
 
 	public RoomEntity() {
 	}
 
-	public RoomEntity(Integer roomNumber, String price) {
+	public RoomEntity(Integer roomNumber, String price, String cPrice, String ePrice) {
 		this.roomNumber = roomNumber;
 		this.price = price;
+		this.cPrice = cPrice;
+		this.ePrice = ePrice;
 	}
 
 	public Long getId() {
@@ -59,10 +67,24 @@ public class RoomEntity {
 	public String getPrice() {
 		return price;
 	}
+	public String getcPrice() {
+		return cPrice;
+	}
+	public String getePrice() {
+		return ePrice;
+	}
+
 
 	public void setPrice(String price) {
 		this.price = price;
 	}
+	public void setcPrice(String price) {
+		this.cPrice = price;
+	}
+	public void setePrice(String price) {
+		this.ePrice = price;
+	}
+
 
 	public List<ReservationEntity> getReservationEntityList() {
 		return reservationEntityList;

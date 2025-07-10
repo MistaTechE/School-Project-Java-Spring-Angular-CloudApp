@@ -128,6 +128,8 @@ export interface Room{
   id:string;
   roomNumber:string;
   price:string;
+  cPrice:string;
+  ePrice:string;
   links:string;
 
 }
