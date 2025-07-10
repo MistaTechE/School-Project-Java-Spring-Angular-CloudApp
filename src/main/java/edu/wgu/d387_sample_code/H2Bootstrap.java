@@ -19,17 +19,17 @@ public class H2Bootstrap implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Bootstrapping data: ");
-		RoomEntity room1= new RoomEntity(405, "200", "274", "170");
+		RoomEntity room1= new RoomEntity(405, "200", "200", "200"); //"274", "170"
 		room1.setId(1L);
 		
 		roomRepository.save(room1);
 
-		RoomEntity room2= new RoomEntity(406, "220", "301", "187");
+		RoomEntity room2= new RoomEntity(406, "220", "220", "220"); //"301", "187"
 		room2.setId(2L);
 
 		roomRepository.save(room2);
 
-		RoomEntity room3= new RoomEntity(407, "260", "356", "221");
+		RoomEntity room3= new RoomEntity(407, "260", "260", "260"); //"356", "221"
 		room3.setId(3L);
 
 		roomRepository.save(room3);
