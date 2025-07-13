@@ -3,10 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
-
-
-
-
+import {Location,LocationStrategy} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -15,9 +12,10 @@ import {map} from "rxjs/operators";
 })
 export class AppComponent implements OnInit{
 
-  constructor(private httpClient:HttpClient){}
+  constructor(private httpClient:HttpClient, private location: Location, private locationStrategy: LocationStrategy){}
 
-  private baseURL:string='http://localhost:8080';
+  // private baseURL:string='http://localhost:8080';
+  private baseURL:string=this.location.path();
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
