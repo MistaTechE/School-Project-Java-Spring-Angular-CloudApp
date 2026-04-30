@@ -1,0 +1,1 @@
+Coding project for University, designed to develop skills in: writing multithreaded, object-oriented code using Java frameworks, interfacing Spring/Angular/Java, and deploying software applications using Docker.
